@@ -70,9 +70,9 @@ export function VideoInputForm(props: VideoInputFormProps){
 
         const data = await ffmpeg.readFile('output.mp3');
 
-        const audioFileBlob = new Blob([data], {type: 'audio/mp3'});
+        const audioFileBlob = new Blob([data], {type: 'audio/mpeg'});
 
-        const audioFile = new File([audioFileBlob], 'output.mp3', { type: 'audio/mpeg'});
+        const audioFile = new File([audioFileBlob], 'audio.mp3', { type: 'audio/mpeg'});
 
         console.log('Conversão finalizada');
 
@@ -104,9 +104,9 @@ export function VideoInputForm(props: VideoInputFormProps){
         console.log('res', response)
         setStatus('generating');
 
-      const teste =  await api.post(`/videos/${videoId}/transcription`, {
-            prompt
-        })
+         const teste =  await api.post(`/videos/${videoId}/transcription`, {
+             prompt
+         }) 
         
         console.log('tes', teste)
        setStatus('success');
